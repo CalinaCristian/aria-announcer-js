@@ -6,6 +6,7 @@ Aria Announcer JS is a vanilla JavaScript utility designed to enhance web applic
 
 - **Lightweight and Easy to Use:** A straightforward API to make announcements to screen readers.
 - **Customizable Politeness Levels:** Supports `off`, `polite`, and `assertive` ARIA live region settings.
+- **Customizable processing time:** Supports a customizable time for the processing of each queued announcement
 - **Singleton Pattern:** Manages announcements through a single live region in the DOM to avoid clutter and confusion.
 
 ## Installation
@@ -27,7 +28,8 @@ After installation, you can import `AriaLiveAnnouncer` into your project and use
 ```javascript
 import { AriaLiveAnnouncer } from 'aria-announcer-js';
 
-const announcer = new AriaLiveAnnouncer();
+// defaults are 'polite' and '500' 
+const announcer = new AriaLiveAnnouncer({ politeness: 'polite', processingTime: 500 });
 
 // Announce a message
 announcer.announce("Hello, world!");
@@ -42,7 +44,7 @@ Refer to the `example.html` file in the GitHub repository for a complete example
 ### `AriaLiveAnnouncer`
 
 - **`announce(message: string, politeness?: 'off' | 'polite' | 'assertive')`**: Announces a message with an optional politeness level.
-- **`init(politeness: 'off' | 'polite' | 'assertive')`**: Initializes the announcer. Automatically called on creation but can be used to reinitialize after `destroy`.
+- **`init({ politeness, processingTime }: {politeness?: 'off' | 'polite' | 'assertive', processingTime?: number})`**: Initializes the announcer. Automatically called on creation but can be used to reinitialize after `destroy`.
 - **`destroy()`**: Cleans up by removing the announcer's DOM element, allowing for a new instance to be created.
 
 ## Development

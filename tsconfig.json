@@ -4,5 +4,7 @@
         "module": "ES2015",
         "sourceMap": true,
         "outDir": "dist",
+        "declaration": true,
+        "declarationMap": true,
     }
 }
