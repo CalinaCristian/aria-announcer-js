@@ -28,7 +28,6 @@ export class AriaLiveAnnouncer {
     }
 
     announce(message: string, politeness: Politeness = this.#politeness) {
-        console.log('called');
         // temporary change the politeness setting
         this.#rootElement.setAttribute('aria-live', politeness);
         this.#rootElement.innerText = message;

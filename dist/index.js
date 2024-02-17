@@ -29,7 +29,6 @@ export class AriaLiveAnnouncer {
         }
     }
     announce(message, politeness = __classPrivateFieldGet(this, _AriaLiveAnnouncer_politeness, "f")) {
-        console.log('called');
         // temporary change the politeness setting
         __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").setAttribute('aria-live', politeness);
         __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").innerText = message;
