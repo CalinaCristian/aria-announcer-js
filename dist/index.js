@@ -24,6 +24,10 @@ export class AriaLiveAnnouncer {
             __classPrivateFieldSet(this, _AriaLiveAnnouncer_politeness, politeness, "f");
             __classPrivateFieldSet(this, _AriaLiveAnnouncer_rootElement, document.createElement('div'), "f");
             __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").id = UNIQUE_ID;
+            __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").style.width = '0';
+            __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").style.height = '0';
+            __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").style.opacity = '0';
+            __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").style.position = 'absolute';
             __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").setAttribute('aria-live', politeness);
             document.body.appendChild(__classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f"));
         }

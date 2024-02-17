@@ -21,6 +21,10 @@ export class AriaLiveAnnouncer {
 
             this.#rootElement = document.createElement('div');
             this.#rootElement.id = UNIQUE_ID;
+            this.#rootElement.style.width = '0';
+            this.#rootElement.style.height = '0';
+            this.#rootElement.style.opacity = '0';
+            this.#rootElement.style.position= 'absolute';
             this.#rootElement.setAttribute('aria-live', politeness);
 
             document.body.appendChild(this.#rootElement);
