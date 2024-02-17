@@ -25,7 +25,7 @@ export class AriaLiveAnnouncer {
         });
     }
     // Init method to allow consecutive `destroy` and `init`.
-    init({ politeness, processingTime } = {}) {
+    init({ politeness, processingTime } = { politeness: __classPrivateFieldGet(this, _AriaLiveAnnouncer_politeness, "f"), processingTime: __classPrivateFieldGet(this, _AriaLiveAnnouncer_processingTime, "f") }) {
         if (!__classPrivateFieldGet(_a, _a, "f", _AriaLiveAnnouncer_instantiated)) {
             __classPrivateFieldSet(_a, _a, true, "f", _AriaLiveAnnouncer_instantiated);
             __classPrivateFieldSet(this, _AriaLiveAnnouncer_politeness, politeness, "f");
@@ -54,6 +54,7 @@ export class AriaLiveAnnouncer {
     destroy() {
         document.body.removeChild(__classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f"));
         __classPrivateFieldSet(this, _AriaLiveAnnouncer_rootElement, undefined, "f");
+        __classPrivateFieldSet(this, _AriaLiveAnnouncer_announcementQueue, [], "f");
         __classPrivateFieldSet(_a, _a, false, "f", _AriaLiveAnnouncer_instantiated);
     }
 }
@@ -64,6 +65,9 @@ _a = AriaLiveAnnouncer, _AriaLiveAnnouncer_rootElement = new WeakMap(), _AriaLiv
         __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").setAttribute('aria-live', politeness);
         __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").innerText = message;
         setTimeout(() => {
+            if (!__classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f")) {
+                return;
+            }
             __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").innerText = '';
             __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").setAttribute('aria-live', __classPrivateFieldGet(this, _AriaLiveAnnouncer_politeness, "f"));
             __classPrivateFieldGet(this, _AriaLiveAnnouncer_instances, "m", _AriaLiveAnnouncer_processQueue).call(this);

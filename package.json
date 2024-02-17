@@ -24,6 +24,7 @@
     "accessibility"
   ],
   "standard-version": {
+    "header": "",
     "types": [
       {
         "type": "feat",

@@ -26,6 +26,14 @@
 
         const announcer = new AriaLiveAnnouncer({ politeness: 'polite', processingTime: 100 });
 
+        setTimeout(() => {
+            announcer.destroy();
+
+            setTimeout(() => {
+                announcer.init();
+            }, 5000);
+        }, 5000);
+
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('#button').addEventListener('click', () => {
                 announcer.announce(generateRandomSentence());

@@ -24,7 +24,7 @@ export class AriaLiveAnnouncer {
     }
 
     // Init method to allow consecutive `destroy` and `init`.
-    init({ politeness, processingTime }: AriaLiveAnnouncerProps = {}) {
+    init({ politeness, processingTime }: AriaLiveAnnouncerProps = { politeness: this.#politeness, processingTime: this.#processingTime}) {
         if (!AriaLiveAnnouncer.#instantiated) {
             AriaLiveAnnouncer.#instantiated = true;
 
@@ -60,6 +60,7 @@ export class AriaLiveAnnouncer {
     destroy() {
         document.body.removeChild(this.#rootElement);
         this.#rootElement = undefined;
+        this.#announcementQueue = [];
         AriaLiveAnnouncer.#instantiated = false;
     }
 
@@ -74,6 +75,10 @@ export class AriaLiveAnnouncer {
             this.#rootElement.innerText = message;
 
             setTimeout(() => {
+                if (!this.#rootElement) { 
+                    return;
+                }
+                
                 this.#rootElement.innerText = '';
                 this.#rootElement.setAttribute('aria-live', this.#politeness);
 
