@@ -83,7 +83,6 @@ export class AriaLiveAnnouncer {
 
     // Method to process the announced messages one at a time based on the processing time provided by the consumer or the default
     #processQueue() {
-        console.log(this.#processingTime);
         if (this.#announcementQueue.length > 0) {
             this.#isAnnouncing = true;
 

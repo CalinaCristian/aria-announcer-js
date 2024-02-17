@@ -72,7 +72,6 @@ _a = AriaLiveAnnouncer, _AriaLiveAnnouncer_rootElement = new WeakMap(), _AriaLiv
     __classPrivateFieldSet(this, _AriaLiveAnnouncer_announcementQueue, [], "f");
     __classPrivateFieldSet(_a, _a, false, "f", _AriaLiveAnnouncer_instantiated);
 }, _AriaLiveAnnouncer_processQueue = function _AriaLiveAnnouncer_processQueue() {
-    console.log(__classPrivateFieldGet(this, _AriaLiveAnnouncer_processingTime, "f"));
     if (__classPrivateFieldGet(this, _AriaLiveAnnouncer_announcementQueue, "f").length > 0) {
         __classPrivateFieldSet(this, _AriaLiveAnnouncer_isAnnouncing, true, "f");
         const { message, politeness } = __classPrivateFieldGet(this, _AriaLiveAnnouncer_announcementQueue, "f").shift();
