@@ -1,4 +1,11 @@
 
+### [1.0.27](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.26...v1.0.27) (2024-02-17)
+
+
+### Chores
+
+* **aria-live:** debug flag, add index.html for http-server ([94e341b](https://github.com/CalinaCristian/aria-announcer-js/commit/94e341b6a39b787e73102195f9a7525db99c3c5e))
+
 ### [1.0.26](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.25...v1.0.26) (2024-02-17)
 
 
