@@ -12,35 +12,36 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
 var _AriaLiveAnnouncer_instances, _a, _AriaLiveAnnouncer_instantiated, _AriaLiveAnnouncer_rootElement, _AriaLiveAnnouncer_politeness, _AriaLiveAnnouncer_announcementQueue, _AriaLiveAnnouncer_isAnnouncing, _AriaLiveAnnouncer_processingTime, _AriaLiveAnnouncer_cleanup, _AriaLiveAnnouncer_processQueue;
 const UNIQUE_ID = '__aria-announcer-element__';
 const DEFAULT_PROCESSING_TIME = 500;
+const DEFAULT_POLITENESS = 'polite';
 export class AriaLiveAnnouncer {
-    constructor({ politeness, processingTime } = {}) {
+    constructor({ politeness, processingTime } = { politeness: DEFAULT_POLITENESS, processingTime: DEFAULT_PROCESSING_TIME }) {
         _AriaLiveAnnouncer_instances.add(this);
         _AriaLiveAnnouncer_rootElement.set(this, void 0);
         _AriaLiveAnnouncer_politeness.set(this, void 0);
         _AriaLiveAnnouncer_announcementQueue.set(this, []);
         _AriaLiveAnnouncer_isAnnouncing.set(this, false);
         _AriaLiveAnnouncer_processingTime.set(this, DEFAULT_PROCESSING_TIME);
-        this.init({
-            politeness: politeness !== null && politeness !== void 0 ? politeness : 'polite',
-            processingTime: processingTime !== null && processingTime !== void 0 ? processingTime : DEFAULT_PROCESSING_TIME
-        });
+        this.init({ politeness, processingTime });
     }
     // Init method to allow consecutive `destroy` and `init`.
-    init({ politeness, processingTime } = { politeness: __classPrivateFieldGet(this, _AriaLiveAnnouncer_politeness, "f"), processingTime: DEFAULT_PROCESSING_TIME }) {
-        if (!__classPrivateFieldGet(_a, _a, "f", _AriaLiveAnnouncer_instantiated)) {
-            __classPrivateFieldSet(_a, _a, true, "f", _AriaLiveAnnouncer_instantiated);
-            __classPrivateFieldSet(this, _AriaLiveAnnouncer_politeness, politeness, "f");
-            __classPrivateFieldSet(this, _AriaLiveAnnouncer_processingTime, processingTime, "f");
-            __classPrivateFieldSet(this, _AriaLiveAnnouncer_rootElement, document.createElement('div'), "f");
-            __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").id = UNIQUE_ID;
-            __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").style.width = '0';
-            __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").style.height = '0';
-            __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").style.opacity = '0';
-            __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").style.position = 'absolute';
-            __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").setAttribute('aria-live', politeness);
-            document.body.appendChild(__classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f"));
+    init({ politeness, processingTime } = { politeness: DEFAULT_POLITENESS, processingTime: DEFAULT_PROCESSING_TIME }) {
+        if (__classPrivateFieldGet(_a, _a, "f", _AriaLiveAnnouncer_instantiated)) {
+            console.warn('AriaLiveAnnouncer is already instantiated');
+            return;
         }
+        __classPrivateFieldSet(_a, _a, true, "f", _AriaLiveAnnouncer_instantiated);
+        __classPrivateFieldSet(this, _AriaLiveAnnouncer_politeness, politeness, "f");
+        __classPrivateFieldSet(this, _AriaLiveAnnouncer_processingTime, processingTime, "f");
+        __classPrivateFieldSet(this, _AriaLiveAnnouncer_rootElement, document.createElement('div'), "f");
+        __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").id = UNIQUE_ID;
+        __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").style.width = '0';
+        __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").style.height = '0';
+        __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").style.opacity = '0';
+        __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").style.position = 'absolute';
+        __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").setAttribute('aria-live', politeness);
+        document.body.appendChild(__classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f"));
     }
+    // method that will post a message to the screen reader
     announce(message, politeness = __classPrivateFieldGet(this, _AriaLiveAnnouncer_politeness, "f")) {
         if (!__classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f")) {
             console.warn('AriaLiveAnnouncer not initialized, please use init() method');
