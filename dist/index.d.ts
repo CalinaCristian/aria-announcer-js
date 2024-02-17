@@ -5,6 +5,7 @@ interface AriaLiveAnnouncerProps {
 }
 export declare class AriaLiveAnnouncer {
     #private;
+    static __DEBUG__: boolean;
     constructor({ politeness, processingTime }?: AriaLiveAnnouncerProps);
     init({ politeness, processingTime }?: AriaLiveAnnouncerProps): void;
     announce(message: string, politeness?: Politeness): void;

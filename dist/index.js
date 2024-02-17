@@ -26,7 +26,7 @@ export class AriaLiveAnnouncer {
     // Init method to allow consecutive `destroy` and `init`.
     init({ politeness, processingTime } = { politeness: DEFAULT_POLITENESS, processingTime: DEFAULT_PROCESSING_TIME }) {
         if (__classPrivateFieldGet(_a, _a, "f", _AriaLiveAnnouncer_instantiated)) {
-            console.warn('AriaLiveAnnouncer is already instantiated');
+            _a.__DEBUG__ && console.warn('AriaLiveAnnouncer is already instantiated');
             return;
         }
         __classPrivateFieldSet(_a, _a, true, "f", _AriaLiveAnnouncer_instantiated);
@@ -44,7 +44,7 @@ export class AriaLiveAnnouncer {
     // method that will post a message to the screen reader
     announce(message, politeness = __classPrivateFieldGet(this, _AriaLiveAnnouncer_politeness, "f")) {
         if (!__classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f")) {
-            console.warn('AriaLiveAnnouncer not initialized, please use init() method');
+            _a.__DEBUG__ && console.warn('AriaLiveAnnouncer not initialized, please use init() method');
             return;
         }
         __classPrivateFieldGet(this, _AriaLiveAnnouncer_announcementQueue, "f").push({ message, politeness });
@@ -56,7 +56,7 @@ export class AriaLiveAnnouncer {
     destroy() {
         const remaining = __classPrivateFieldGet(this, _AriaLiveAnnouncer_announcementQueue, "f").length;
         if (remaining > 0) {
-            console.warn(`Destroying AriaLiveAnnouncer with ${remaining} items left to announce. Announcing them all at once`);
+            _a.__DEBUG__ && console.warn(`Destroying AriaLiveAnnouncer with ${remaining} items left to announce. Announcing them all at once`);
             __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").setAttribute('aria-live', __classPrivateFieldGet(this, _AriaLiveAnnouncer_politeness, "f"));
             __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").innerText = __classPrivateFieldGet(this, _AriaLiveAnnouncer_announcementQueue, "f").map(v => v.message).join('\n');
             __classPrivateFieldSet(this, _AriaLiveAnnouncer_announcementQueue, [], "f");
@@ -92,4 +92,5 @@ _a = AriaLiveAnnouncer, _AriaLiveAnnouncer_rootElement = new WeakMap(), _AriaLiv
     }
 };
 _AriaLiveAnnouncer_instantiated = { value: false };
+AriaLiveAnnouncer.__DEBUG__ = false;
 //# sourceMappingURL=index.js.map

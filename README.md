@@ -62,7 +62,7 @@ npm run build
 
 - build: Compiles the TypeScript source code.
 - build:watch: Watches for changes and recompiles.
-- start: Creates a server for testing the `example.html`.
+- start: Creates a server for testing the `index.html`.
 - release: Prepares a new version release using `standard-version`.
 
 ## Contributing

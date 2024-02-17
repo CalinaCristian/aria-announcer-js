@@ -11,7 +11,8 @@ interface AriaLiveAnnouncerProps {
 
 export class AriaLiveAnnouncer {
     static #instantiated = false;
-    
+    static __DEBUG__ = false;
+
     #rootElement;
     #politeness;
     #announcementQueue = [];
@@ -25,7 +26,7 @@ export class AriaLiveAnnouncer {
     // Init method to allow consecutive `destroy` and `init`.
     init({ politeness, processingTime }: AriaLiveAnnouncerProps = { politeness: DEFAULT_POLITENESS, processingTime: DEFAULT_PROCESSING_TIME}) {
         if (AriaLiveAnnouncer.#instantiated) {
-            console.warn('AriaLiveAnnouncer is already instantiated');
+            AriaLiveAnnouncer.__DEBUG__ && console.warn('AriaLiveAnnouncer is already instantiated');
             return;
         }
 
@@ -48,7 +49,7 @@ export class AriaLiveAnnouncer {
     // method that will post a message to the screen reader
     announce(message: string, politeness: Politeness = this.#politeness) {
         if (!this.#rootElement) {
-            console.warn('AriaLiveAnnouncer not initialized, please use init() method');
+            AriaLiveAnnouncer.__DEBUG__ && console.warn('AriaLiveAnnouncer not initialized, please use init() method');
             return;
         }
 
@@ -64,7 +65,7 @@ export class AriaLiveAnnouncer {
         const remaining = this.#announcementQueue.length;
 
         if (remaining > 0) {
-            console.warn(`Destroying AriaLiveAnnouncer with ${remaining} items left to announce. Announcing them all at once`);
+            AriaLiveAnnouncer.__DEBUG__ && console.warn(`Destroying AriaLiveAnnouncer with ${remaining} items left to announce. Announcing them all at once`);
 
             this.#rootElement.setAttribute('aria-live', this.#politeness);
             this.#rootElement.innerText = this.#announcementQueue.map(v => v.message).join('\n');
