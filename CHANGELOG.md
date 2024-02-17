@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.18](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.17...v1.0.18) (2024-02-17)
+
+
+### Chores
+
+* **aria-live:** fix announce after destroy ([5d0353c](https://github.com/CalinaCristian/aria-announcer-js/commit/5d0353c555e9eef1e5f50d3f37d5b9de163b6829))
+
 ### [1.0.17](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.16...v1.0.17) (2024-02-17)
 
 
