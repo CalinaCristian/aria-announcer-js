@@ -1,4 +1,11 @@
 
+### [1.0.24](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.23...v1.0.24) (2024-02-17)
+
+
+### Chores
+
+* **aria-live:** remove console.log ([dbe4e82](https://github.com/CalinaCristian/aria-announcer-js/commit/dbe4e8256ef94e159087bebaeb2531a3ed9249a4))
+
 ### [1.0.23](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.22...v1.0.23) (2024-02-17)
 
 
