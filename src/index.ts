@@ -28,6 +28,11 @@ export class AriaLiveAnnouncer {
     }
 
     announce(message: string, politeness: Politeness = this.#politeness) {
+        if (!this.#rootElement) {
+            console.warn('AriaLiveAnnouncer not initialized, please use init() method');
+            return;
+        }
+
         // temporary change the politeness setting
         this.#rootElement.setAttribute('aria-live', politeness);
         this.#rootElement.innerText = message;
@@ -35,7 +40,7 @@ export class AriaLiveAnnouncer {
         // cleanup the message and reset the politeness setting
         setTimeout(() => {
             this.#rootElement.innerText = null;
-            this.#rootElement.setAttribute('aria-live', this.#politeness)
+            this.#rootElement.setAttribute('aria-live', this.#politeness);
         }, 1)
     }
 

@@ -29,6 +29,10 @@ export class AriaLiveAnnouncer {
         }
     }
     announce(message, politeness = __classPrivateFieldGet(this, _AriaLiveAnnouncer_politeness, "f")) {
+        if (!__classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f")) {
+            console.warn('AriaLiveAnnouncer not initialized, please use init() method');
+            return;
+        }
         // temporary change the politeness setting
         __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").setAttribute('aria-live', politeness);
         __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").innerText = message;
