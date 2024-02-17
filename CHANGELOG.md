@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.21](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.20...v1.0.21) (2024-02-17)
+
+
+### Chores
+
+* **aria-live:** make params optional ([4a967a3](https://github.com/CalinaCristian/aria-announcer-js/commit/4a967a3b08773ea36f6b5521e0afe4b1df284b34))
+
 ### [1.0.20](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.19...v1.0.20) (2024-02-17)
 
 
