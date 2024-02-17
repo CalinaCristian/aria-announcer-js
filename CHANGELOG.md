@@ -1,4 +1,11 @@
 
+### [1.0.23](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.22...v1.0.23) (2024-02-17)
+
+
+### Chores
+
+* **aria-live:** announce all at once on destroy ([463492f](https://github.com/CalinaCristian/aria-announcer-js/commit/463492ffc7ae967e85c56485fe2cf3a0d4dcd070))
+
 ### [1.0.22](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.21...v1.0.22) (2024-02-17)
 
 
