@@ -1,0 +1,68 @@
+name: Publish to npm and Create GitHub Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 # Important for standard-version to correctly calculate the version bump
+        token: ${{ secrets.GITHUB_TOKEN }} 
+
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '20'
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build package
+      run: npm run build
+
+    - name: Configure Git
+      run: |
+        git config --global user.email "cristycalina@gmail.com"
+        git config --global user.name "Cristian Calina"
+
+    - name: Run standard-version
+      run: npm run release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Push changes
+      run: git push --follow-tags origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Publish to npm
+      run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    - name: Get the version tag
+      run: echo "TAG=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
+
+    - name: Extract Latest Changelog Entry and Set as Env Var
+      run: |
+        echo "CHANGELOG<<EOF" >> $GITHUB_ENV
+        awk '/## \[/{i++}i==2{exit}{print}' CHANGELOG.md >> $GITHUB_ENV
+        echo "EOF" >> $GITHUB_ENV
+
+    - name: Create GitHub Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ env.TAG }}
+        release_name: Release ${{ env.TAG }}
+        draft: false
+        prerelease: false
+        body: ${{ env.CHANGELOG }}

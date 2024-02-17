@@ -1,0 +1,54 @@
+{
+  "name": "aria-announcer-js",
+  "version": "1.0.15",
+  "description": "A vanilla javascript class that allows announcing messages to the screen reader.",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -p tsconfig.json -w",
+    "start": "npx http-server -c -l",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/CalinaCristian/aria-announcer-js.git"
+  },
+  "keywords": [
+    "aria",
+    "announcer",
+    "vanilla",
+    "javascript",
+    "a11y",
+    "accessibility"
+  ],
+  "standard-version": {
+    "types": [
+      {
+        "type": "feat",
+        "hidden": false,
+        "section": "Features"
+      },
+      {
+        "type": "fix",
+        "hidden": false,
+        "section": "Bug Fixes"
+      },
+      {
+        "type": "chore",
+        "hidden": false,
+        "section": "Chores"
+      }
+    ]
+  },
+  "author": "CalinaCristian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CalinaCristian/aria-announcer-js/issues"
+  },
+  "homepage": "https://github.com/CalinaCristian/aria-announcer-js#readme",
+  "devDependencies": {
+    "standard-version": "^9.5.0",
+    "typescript": "^5.3.3"
+  }
+}

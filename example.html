@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aria Live Announcer</title>
+    <script defer type="module">
+        import { AriaLiveAnnouncer } from './dist/index.js';
+
+        // Random words
+        const words = ['apple', 'banana', 'cherry', 'date', 'elderberry', 'fig', 'grape', 'honeydew', 'kiwi', 'lemon', 'mango', 'nectarine', 'orange', 'papaya', 'quince', 'raspberry', 'strawberry', 'tangerine', 'ugli', 'victoria', 'watermelon', 'xigua', 'yam', 'zucchini', 'apricot', 'blackberry', 'cantaloupe', 'dragonfruit', 'elderflower', 'feijoa'];
+
+        // Generate a random sentence from the words
+        function generateRandomSentence(wordCount = 10) {
+            let sentence = [];
+
+            for (let i = 0; i < wordCount; i++) {
+                // Select a random word from the array and add it to the sentence
+                const randomIndex = Math.floor(Math.random() * words.length);
+                sentence.push(words[randomIndex]);
+            }
+
+            // Join the words into a sentence
+            return sentence.join(' ') + '.';
+        }
+
+        const announcer = new AriaLiveAnnouncer();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('#button').addEventListener('click', () => {
+                announcer.announce(generateRandomSentence());
+            });
+        });
+    </script>
+</head>
+<body>
+    <button type="button" id="button">Announce some random text !</button>
+</body>
+</html>
