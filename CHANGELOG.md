@@ -1,4 +1,11 @@
 
+### [1.0.28](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.27...v1.0.28) (2024-02-17)
+
+
+### Chores
+
+* **aria-live:** proper cleanup ([3da7db4](https://github.com/CalinaCristian/aria-announcer-js/commit/3da7db46929f7dfb43421fa0916e36fa3c560adb))
+
 ### [1.0.27](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.26...v1.0.27) (2024-02-17)
 
 
