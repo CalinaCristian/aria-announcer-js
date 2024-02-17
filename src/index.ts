@@ -16,7 +16,7 @@ export class AriaLiveAnnouncer {
     #isAnnouncing = false;
     #processingTime = 500;
 
-    constructor({ politeness, processingTime }: AriaLiveAnnouncerProps) {
+    constructor({ politeness, processingTime }: AriaLiveAnnouncerProps = {}) {
         this.init({
             politeness: politeness ?? 'polite', 
             processingTime: processingTime ?? this.#processingTime
@@ -24,7 +24,7 @@ export class AriaLiveAnnouncer {
     }
 
     // Init method to allow consecutive `destroy` and `init`.
-    init({ politeness, processingTime }: AriaLiveAnnouncerProps) {
+    init({ politeness, processingTime }: AriaLiveAnnouncerProps = {}) {
         if (!AriaLiveAnnouncer.#instantiated) {
             AriaLiveAnnouncer.#instantiated = true;
 

@@ -12,7 +12,7 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
 var _AriaLiveAnnouncer_instances, _a, _AriaLiveAnnouncer_instantiated, _AriaLiveAnnouncer_rootElement, _AriaLiveAnnouncer_politeness, _AriaLiveAnnouncer_announcementQueue, _AriaLiveAnnouncer_isAnnouncing, _AriaLiveAnnouncer_processingTime, _AriaLiveAnnouncer_processQueue;
 const UNIQUE_ID = '__aria-announcer-element__';
 export class AriaLiveAnnouncer {
-    constructor({ politeness, processingTime }) {
+    constructor({ politeness, processingTime } = {}) {
         _AriaLiveAnnouncer_instances.add(this);
         _AriaLiveAnnouncer_rootElement.set(this, void 0);
         _AriaLiveAnnouncer_politeness.set(this, void 0);
@@ -25,7 +25,7 @@ export class AriaLiveAnnouncer {
         });
     }
     // Init method to allow consecutive `destroy` and `init`.
-    init({ politeness, processingTime }) {
+    init({ politeness, processingTime } = {}) {
         if (!__classPrivateFieldGet(_a, _a, "f", _AriaLiveAnnouncer_instantiated)) {
             __classPrivateFieldSet(_a, _a, true, "f", _AriaLiveAnnouncer_instantiated);
             __classPrivateFieldSet(this, _AriaLiveAnnouncer_politeness, politeness, "f");
