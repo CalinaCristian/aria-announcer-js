@@ -1,3 +1,11 @@
+
+### [1.0.22](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.21...v1.0.22) (2024-02-17)
+
+
+### Chores
+
+* **aria-live:** fix changelog, fix defaults ([7fcd83c](https://github.com/CalinaCristian/aria-announcer-js/commit/7fcd83c2d9adb6478e376849b391c6e8a6dde69a))
+
 ### [1.0.21](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.20...v1.0.21) (2024-02-17)
 
 
