@@ -1,4 +1,11 @@
 
+### [1.0.26](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.25...v1.0.26) (2024-02-17)
+
+
+### Chores
+
+* **docs:** adapt destroy readme ([f6a3a37](https://github.com/CalinaCristian/aria-announcer-js/commit/f6a3a37cc1b80f92c30be4a4bb5a106b50955ee9))
+
 ### [1.0.25](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.24...v1.0.25) (2024-02-17)
 
 
