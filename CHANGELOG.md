@@ -1,4 +1,11 @@
 
+### [1.0.25](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.24...v1.0.25) (2024-02-17)
+
+
+### Chores
+
+* **aria-live:** extract default politeness ([ca57e19](https://github.com/CalinaCristian/aria-announcer-js/commit/ca57e196874a11d39e234dedebc86dc3b9bb58d7))
+
 ### [1.0.24](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.23...v1.0.24) (2024-02-17)
 
 

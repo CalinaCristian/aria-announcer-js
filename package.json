@@ -1,6 +1,6 @@
 {
   "name": "aria-announcer-js",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "A vanilla javascript class that allows announcing messages to the screen reader.",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
