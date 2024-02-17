@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.19](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.18...v1.0.19) (2024-02-17)
+
+
+### Chores
+
+* **aria-live:** hide the element ([a62f67c](https://github.com/CalinaCristian/aria-announcer-js/commit/a62f67cc22180c440358888d7370118235e700d7))
+
 ### [1.0.18](https://github.com/CalinaCristian/aria-announcer-js/compare/v1.0.17...v1.0.18) (2024-02-17)
 
 
