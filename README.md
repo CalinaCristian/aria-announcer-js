@@ -45,7 +45,7 @@ Refer to the `example.html` file in the GitHub repository for a complete example
 
 - **`announce(message: string, politeness?: 'off' | 'polite' | 'assertive')`**: Announces a message with an optional politeness level.
 - **`init({ politeness, processingTime }: {politeness?: 'off' | 'polite' | 'assertive', processingTime?: number})`**: Initializes the announcer. Automatically called on creation but can be used to reinitialize after `destroy`.
-- **`destroy()`**: Cleans up by removing the announcer's DOM element, allowing for a new instance to be created.
+- **`destroy()`**: Cleans up by removing the announcer's DOM element, allowing for a new instance to be created. It also announces remaining queued items if any separated by new lines.
 
 ## Development
 
