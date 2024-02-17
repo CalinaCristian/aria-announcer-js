@@ -69,20 +69,24 @@ export class AriaLiveAnnouncer {
 
             this.#rootElement.setAttribute('aria-live', this.#politeness);
             this.#rootElement.innerText = this.#announcementQueue.map(v => v.message).join('\n');
-            this.#announcementQueue = [];
-
+            this.#clearQueue();
+            
             setTimeout(() => this.#cleanup(), this.#processingTime);
         } else {
             this.#cleanup();
         }
     }
+
+    #clearQueue() {
+        this.#announcementQueue = [];
+        this.#isAnnouncing = false;
+    }
     
     // Private cleanup method that removes the element and resets the announcement queue & singleton
     #cleanup() {
         document.body.removeChild(this.#rootElement);
-
         this.#rootElement = undefined;
-        this.#announcementQueue = [];
+        this.#clearQueue();
 
         AriaLiveAnnouncer.#instantiated = false;
     }

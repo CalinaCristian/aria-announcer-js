@@ -9,7 +9,7 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
     return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
 };
-var _AriaLiveAnnouncer_instances, _a, _AriaLiveAnnouncer_instantiated, _AriaLiveAnnouncer_rootElement, _AriaLiveAnnouncer_politeness, _AriaLiveAnnouncer_announcementQueue, _AriaLiveAnnouncer_isAnnouncing, _AriaLiveAnnouncer_processingTime, _AriaLiveAnnouncer_cleanup, _AriaLiveAnnouncer_processQueue;
+var _AriaLiveAnnouncer_instances, _a, _AriaLiveAnnouncer_instantiated, _AriaLiveAnnouncer_rootElement, _AriaLiveAnnouncer_politeness, _AriaLiveAnnouncer_announcementQueue, _AriaLiveAnnouncer_isAnnouncing, _AriaLiveAnnouncer_processingTime, _AriaLiveAnnouncer_clearQueue, _AriaLiveAnnouncer_cleanup, _AriaLiveAnnouncer_processQueue;
 const UNIQUE_ID = '__aria-announcer-element__';
 const DEFAULT_PROCESSING_TIME = 500;
 const DEFAULT_POLITENESS = 'polite';
@@ -59,7 +59,7 @@ export class AriaLiveAnnouncer {
             _a.__DEBUG__ && console.warn(`Destroying AriaLiveAnnouncer with ${remaining} items left to announce. Announcing them all at once`);
             __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").setAttribute('aria-live', __classPrivateFieldGet(this, _AriaLiveAnnouncer_politeness, "f"));
             __classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f").innerText = __classPrivateFieldGet(this, _AriaLiveAnnouncer_announcementQueue, "f").map(v => v.message).join('\n');
-            __classPrivateFieldSet(this, _AriaLiveAnnouncer_announcementQueue, [], "f");
+            __classPrivateFieldGet(this, _AriaLiveAnnouncer_instances, "m", _AriaLiveAnnouncer_clearQueue).call(this);
             setTimeout(() => __classPrivateFieldGet(this, _AriaLiveAnnouncer_instances, "m", _AriaLiveAnnouncer_cleanup).call(this), __classPrivateFieldGet(this, _AriaLiveAnnouncer_processingTime, "f"));
         }
         else {
@@ -67,10 +67,13 @@ export class AriaLiveAnnouncer {
         }
     }
 }
-_a = AriaLiveAnnouncer, _AriaLiveAnnouncer_rootElement = new WeakMap(), _AriaLiveAnnouncer_politeness = new WeakMap(), _AriaLiveAnnouncer_announcementQueue = new WeakMap(), _AriaLiveAnnouncer_isAnnouncing = new WeakMap(), _AriaLiveAnnouncer_processingTime = new WeakMap(), _AriaLiveAnnouncer_instances = new WeakSet(), _AriaLiveAnnouncer_cleanup = function _AriaLiveAnnouncer_cleanup() {
+_a = AriaLiveAnnouncer, _AriaLiveAnnouncer_rootElement = new WeakMap(), _AriaLiveAnnouncer_politeness = new WeakMap(), _AriaLiveAnnouncer_announcementQueue = new WeakMap(), _AriaLiveAnnouncer_isAnnouncing = new WeakMap(), _AriaLiveAnnouncer_processingTime = new WeakMap(), _AriaLiveAnnouncer_instances = new WeakSet(), _AriaLiveAnnouncer_clearQueue = function _AriaLiveAnnouncer_clearQueue() {
+    __classPrivateFieldSet(this, _AriaLiveAnnouncer_announcementQueue, [], "f");
+    __classPrivateFieldSet(this, _AriaLiveAnnouncer_isAnnouncing, false, "f");
+}, _AriaLiveAnnouncer_cleanup = function _AriaLiveAnnouncer_cleanup() {
     document.body.removeChild(__classPrivateFieldGet(this, _AriaLiveAnnouncer_rootElement, "f"));
     __classPrivateFieldSet(this, _AriaLiveAnnouncer_rootElement, undefined, "f");
-    __classPrivateFieldSet(this, _AriaLiveAnnouncer_announcementQueue, [], "f");
+    __classPrivateFieldGet(this, _AriaLiveAnnouncer_instances, "m", _AriaLiveAnnouncer_clearQueue).call(this);
     __classPrivateFieldSet(_a, _a, false, "f", _AriaLiveAnnouncer_instantiated);
 }, _AriaLiveAnnouncer_processQueue = function _AriaLiveAnnouncer_processQueue() {
     if (__classPrivateFieldGet(this, _AriaLiveAnnouncer_announcementQueue, "f").length > 0) {
