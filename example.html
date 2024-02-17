@@ -24,7 +24,7 @@
             return sentence.join(' ') + '.';
         }
 
-        const announcer = new AriaLiveAnnouncer({ politeness: 'polite', processingTime: 100 });
+        const announcer = new AriaLiveAnnouncer({ politeness: 'polite', processingTime: 1000 });
 
         setTimeout(() => {
             announcer.destroy();
@@ -36,7 +36,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('#button').addEventListener('click', () => {
-                announcer.announce(generateRandomSentence());
+                announcer.announce(generateRandomSentence(1));
             });
         });
     </script>
